@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Lut 2019, 02:07
--- Wersja serwera: 5.6.24
--- Wersja PHP: 5.6.8
+-- Czas generowania: 18 Lut 2019, 18:15
+-- Wersja serwera: 5.6.21
+-- Wersja PHP: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `auth_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_permission` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
@@ -101,7 +101,7 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `password` varchar(128) NOT NULL,
   `last_login` datetime(6) DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$120000$JMCKe8eFiwHb$/ELoM4FV+M+BlADx1Sbblkz88dxyP+/YyokKyZKImp0=', '2019-02-16 00:32:34.183641', 1, 'kwojda', '', '', '', 1, 1, '2019-02-15 15:57:57.614860');
+(1, 'pbkdf2_sha256$120000$JMCKe8eFiwHb$/ELoM4FV+M+BlADx1Sbblkz88dxyP+/YyokKyZKImp0=', '2019-02-15 15:58:06.241349', 1, 'kwojda', '', '', '', 1, 1, '2019-02-15 15:57:57.614860');
 
 -- --------------------------------------------------------
 
@@ -128,7 +128,7 @@ INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `userna
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_groups` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `auth_user_groups` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
 --
 
 CREATE TABLE IF NOT EXISTS `django_admin_log` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `action_time` datetime(6) NOT NULL,
   `object_id` longtext,
   `object_repr` varchar(200) NOT NULL,
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `django_admin_log`
@@ -168,7 +168,9 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
 (1, '2019-02-15 16:12:16.938753', '2', 'What''s going on?', 1, '[{"added": {}}]', 8, 1),
-(2, '2019-02-16 00:32:48.506195', '3', 'pytanie', 1, '[{"added": {}}]', 8, 1);
+(2, '2019-02-18 13:32:40.922392', '3', 'Just hacking again', 2, '[{"changed": {"fields": ["choice_text", "votes"]}}]', 7, 1),
+(3, '2019-02-18 16:51:06.146704', '3', 'Future news', 1, '[{"added": {}}]', 8, 1),
+(4, '2019-02-18 16:51:18.685732', '4', 'Old News', 1, '[{"added": {}}]', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -177,7 +179,7 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 --
 
 CREATE TABLE IF NOT EXISTS `django_content_type` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
@@ -203,7 +205,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `django_migrations` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL
@@ -248,7 +250,6 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('5053pt0uhz1exgpr5mh7zjl4oaznyt5p', 'MDIyZTk3ZDRkNGQxYTc4OTNmMGJkZjY0MmViYjQ1MWJmZDYzODBiMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlOTc3ZTZlYTdmM2QzNjc5ZjU1YmUwNmEyMjRhODAzMjkxZTA2MTE5In0=', '2019-03-02 00:32:34.188641'),
 ('l9m9we19q5jrkoa1nlj081r1nbdvrbze', 'MDIyZTk3ZDRkNGQxYTc4OTNmMGJkZjY0MmViYjQ1MWJmZDYzODBiMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlOTc3ZTZlYTdmM2QzNjc5ZjU1YmUwNmEyMjRhODAzMjkxZTA2MTE5In0=', '2019-03-01 15:58:06.246349');
 
 -- --------------------------------------------------------
@@ -258,21 +259,20 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `polls_choice` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `choice_text` varchar(200) NOT NULL,
   `votes` int(11) NOT NULL,
   `question_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `polls_choice`
 --
 
 INSERT INTO `polls_choice` (`id`, `choice_text`, `votes`, `question_id`) VALUES
-(1, 'Not much', 2, 1),
-(2, 'The sky', 5, 1),
-(3, 'Just hacking again', 4, 1),
-(5, 'Dlaczego pytanie numer 2?', 9, 2);
+(1, 'Python tutorial', 1, 1),
+(2, 'cycki', 3, 1),
+(3, 'tata', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -281,10 +281,10 @@ INSERT INTO `polls_choice` (`id`, `choice_text`, `votes`, `question_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `polls_question` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `question_text` varchar(200) NOT NULL,
   `pub_date` datetime(6) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `polls_question`
@@ -293,7 +293,8 @@ CREATE TABLE IF NOT EXISTS `polls_question` (
 INSERT INTO `polls_question` (`id`, `question_text`, `pub_date`) VALUES
 (1, 'What''s new?', '2019-02-15 15:41:32.387131'),
 (2, 'What''s going on?', '2019-02-15 16:12:15.000000'),
-(3, 'pytanie', '2019-02-16 00:32:46.000000');
+(3, 'Future news', '2019-04-12 16:51:00.000000'),
+(4, 'Old News', '2018-11-01 16:51:17.000000');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -303,73 +304,73 @@ INSERT INTO `polls_question` (`id`, `question_text`, `pub_date`) VALUES
 -- Indexes for table `auth_group`
 --
 ALTER TABLE `auth_group`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`), ADD KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`), ADD KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`);
 
 --
 -- Indexes for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`);
 
 --
 -- Indexes for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`), ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`), ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
 
 --
 -- Indexes for table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`), ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`), ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
 
 --
 -- Indexes for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  ADD PRIMARY KEY (`id`), ADD KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`), ADD KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`), ADD KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`);
 
 --
 -- Indexes for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`);
 
 --
 -- Indexes for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `django_session`
 --
 ALTER TABLE `django_session`
-  ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
+ ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
 -- Indexes for table `polls_choice`
 --
 ALTER TABLE `polls_choice`
-  ADD PRIMARY KEY (`id`), ADD KEY `polls_choice_question_id_c5b4b260_fk_polls_question_id` (`question_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `polls_choice_question_id_c5b4b260_fk_polls_question_id` (`question_id`);
 
 --
 -- Indexes for table `polls_question`
 --
 ALTER TABLE `polls_question`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -379,57 +380,57 @@ ALTER TABLE `polls_question`
 -- AUTO_INCREMENT dla tabeli `auth_group`
 --
 ALTER TABLE `auth_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT dla tabeli `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT dla tabeli `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT dla tabeli `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT dla tabeli `polls_choice`
 --
 ALTER TABLE `polls_choice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `polls_question`
 --
 ALTER TABLE `polls_question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Ograniczenia dla zrzutów tabel
 --
